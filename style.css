@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap' );
+
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: #f0f8ff; /* Light blue background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ff6347; /* Tomato color for headings */
+}
+
+.btn, .option, .back-btn {
+    background-color: #ffd700; /* Gold color for buttons */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1em;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover, .option:hover, .back-btn:hover {
+    transform: scale(1.1); /* Simple animation on hover */
+}
+
+/* Login Page */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.login-box input {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Fredoka One', cursive;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Story & Quiz Pages */
+.story-list, .quiz-question {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.story-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
