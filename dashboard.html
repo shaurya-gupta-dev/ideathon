@@ -6,32 +6,50 @@
     <title>Dashboard - Kids Learning Fun</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dashboard-body"> <!-- Added a specific class for dashboard background -->
+
     <div class="container">
-        <header>
-            <h1>Your Adventure!</h1>
+        <header class="dashboard-header">
+            <h1>Your Adventure Awaits!</h1>
+            <div class="mascot-greeting">
+                <img src="img/dreki.png" alt="Mascot" class="header-mascot">
+                <p>What should we do next?</p>
+            </div>
         </header>
-        <div class="dashboard">
-            <div class="card">
-                <h2>Story Time</h2>
-                <p>Listen to amazing stories!</p>
-                <a href="story.html" class="btn">Go to Stories</a>
-            </div>
-            <div class="card">
-                <h2>Quiz Challenge</h2>
-                <p>Test your knowledge!</p>
-                <a href="quiz.html" class="btn">Take a Quiz</a>
-            </div>
-            <div class="card">
-                <h2>Your Stats</h2>
-                <p>See your progress!</p>
-                <div class="stats">
-                    <p><strong>Stories Listened:</strong> 5</p>
-                    <p><strong>Quizzes Taken:</strong> 10</p>
-                    <p><strong>Points Earned:</strong> 1500</p>
+
+        <div class="game-map">
+            <!-- Story Time Location -->
+            <a href="story.html" class="map-location story-location">
+                <div class="location-icon-container">
+                    <img src="https://i.postimg.cc/P5gLgCg8/storybook-icon.png" alt="Storybook Icon" class="location-icon">
+                </div>
+                <span class="location-label">Story Land</span>
+            </a>
+
+            <!-- Quiz Challenge Location -->
+            <a href="quiz.html" class="map-location quiz-location">
+                <div class="location-icon-container">
+                    <img src="https://i.postimg.cc/tJ7p0k1T/quiz-icon.png" alt="Quiz Icon" class="location-icon">
+                </div>
+                <span class="location-label">Quiz Mountain</span>
+            </a>
+
+            <!-- Stats/Progress Location -->
+            <div class="map-location stats-location">
+                <div class="location-icon-container">
+                    <img src="https://i.postimg.cc/kXqVzZJc/trophy-icon.png" alt="Trophy Icon" class="location-icon">
+                </div>
+                <span class="location-label">Trophy Room</span>
+                <!-- Stats will pop up on hover/click in a future step -->
+                <div class="stats-popup">
+                    <h3>Your Progress</h3>
+                    <p><strong>Stories:</strong> 5</p>
+                    <p><strong>Quizzes:</strong> 10</p>
+                    <p><strong>Points:</strong> 1500</p>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>
