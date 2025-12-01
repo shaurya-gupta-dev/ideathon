@@ -2,27 +2,124 @@
 
 body {
     font-family: 'Fredoka One', cursive;
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #87CEEB; /* A more vibrant sky blue */
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     color: #333;
+    overflow: hidden; /* Hide overflow from floating shapes */
 }
 
+/* --- Entry Loader --- */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s 1s ease-out, visibility 1.5s;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-shape {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: #ff6347;
+    border-radius: 50%;
+    animation: loader-bounce 1.4s infinite ease-in-out both;
+}
+
+.loader-shape:nth-child(2) {
+    animation-delay: -0.16s;
+    background-color: #ffd700;
+}
+
+.loader-shape:nth-child(3) {
+    animation-delay: -0.32s;
+    background-color: #32cd32;
+}
+
+@keyframes loader-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+/* --- Floating Shapes Background --- */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.floating-shapes::before, .floating-shapes::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 25s infinite linear;
+}
+
+.floating-shapes::before {
+    left: 15%;
+    bottom: -60px;
+    animation-duration: 20s;
+    width: 80px;
+    height: 80px;
+}
+
+.floating-shapes::after {
+    left: 75%;
+    bottom: -60px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+/* Add more shapes */
+/* You can add more pseudo-elements or generate them with JS for more complexity */
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* --- Main Content --- */
 .container {
     width: 90%;
     max-width: 1000px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-h1, h2 {
-    color: #ff6347; /* Tomato color for headings */
-}
+h1 { color: #ff6347; }
 
-.btn, .option, .back-btn {
-    background-color: #ffd700; /* Gold color for buttons */
+.btn {
+    background-color: #ffd700;
     color: #333;
     padding: 10px 20px;
     border: none;
@@ -34,9 +131,7 @@ h1, h2 {
     transition: transform 0.2s ease-in-out;
 }
 
-.btn:hover, .option:hover, .back-btn:hover {
-    transform: scale(1.1); /* Simple animation on hover */
-}
+.btn:hover { transform: scale(1.1); }
 
 /* --- Login Page --- */
 .login-container {
@@ -68,16 +163,48 @@ h1, h2 {
 .mascot-container {
     position: relative;
     text-align: center;
+    animation: subtle-bounce 4s infinite ease-in-out;
 }
 
 .mascot-img {
-    width: 150px; /* Adjusted mascot size */
-    animation: bounce 2s infinite ease-in-out;
+    width: 150px;
+}
+
+.eyes {
+    position: absolute;
+    top: 45px; /* Adjust based on your mascot image */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px; /* Adjust based on your mascot image */
+    display: flex;
+    justify-content: space-between;
+}
+
+.eye {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+}
+
+.pupil {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
 }
 
 .speech-bubble {
     position: absolute;
-    bottom: 120px; /* Adjusted position for smaller mascot */
+    bottom: 120px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -89,7 +216,6 @@ h1, h2 {
     white-space: nowrap;
 }
 
-/* Speech bubble tail */
 .speech-bubble::after {
     content: '';
     position: absolute;
@@ -101,54 +227,7 @@ h1, h2 {
     border-color: #fff transparent transparent transparent;
 }
 
-/* Bounce animation for mascot */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-/* --- Dashboard --- */
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* --- Story & Quiz Pages --- */
-.story-list, .quiz-question {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.story-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.quiz-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.back-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+@keyframes subtle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
