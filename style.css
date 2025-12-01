@@ -64,20 +64,20 @@ h1, h2 {
     font-family: 'Fredoka One', cursive;
 }
 
-/* -- New Mascot Styles -- */
+/* -- Mascot Styles -- */
 .mascot-container {
     position: relative;
     text-align: center;
 }
 
 .mascot-img {
-    width: 150px;
+    width: 150px; /* Adjusted mascot size */
     animation: bounce 2s infinite ease-in-out;
 }
 
 .speech-bubble {
     position: absolute;
-    bottom: 160px; /* Position above the mascot */
+    bottom: 120px; /* Adjusted position for smaller mascot */
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
@@ -110,7 +110,6 @@ h1, h2 {
         transform: translateY(-20px);
     }
 }
-
 
 /* --- Dashboard --- */
 .dashboard {
@@ -146,4 +145,10 @@ h1, h2 {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-top: 20px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
