@@ -158,43 +158,53 @@ h1, h2 {
 .mascot-container {
     position: relative;
     text-align: center;
-    animation: subtle-bounce 4s infinite ease-in-out;
+    /* The 'animation' property is removed to stop the bounce */
 }
+
 
 .mascot-img {
     width: 150px;
 }
 
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 300px;
+    position: relative; /* Add position relative to be a reference for the eyes */
+}
+
 .eyes {
     position: absolute;
-    top: 45px; /* Adjust based on your mascot image */
+    top: -15px; /* Position the eyes to pop out from the top */
     left: 50%;
     transform: translateX(-50%);
-    width: 70px; /* Adjust based on your mascot image */
+    width: 90px; /* Increased width for better spacing */
     display: flex;
     justify-content: space-between;
 }
 
 .eye {
-    width: 25px;
-    height: 25px;
+    width: 30px; /* Slightly larger eyes */
+    height: 30px;
     background: #fff;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    border: 2px solid #333;
+    border: 3px solid #87CEEB; /* Border color matches the background */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .pupil {
-    width: 12px;
-    height: 12px;
+    width: 15px; /* Larger pupils */
+    height: 15px;
     background: #333;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s linear;
+    /* The transform is handled by JavaScript, no change needed here */
 }
 
 .speech-bubble {
